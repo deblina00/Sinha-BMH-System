@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-ember: var(--ember);
+  --color-steel: var(--steel);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+}
+
+/* Dark industrial palette by default — the brand lives in steel-blue + ember-orange */
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.14 0.02 250);
+  --foreground: oklch(0.97 0.005 250);
+
+  --surface: oklch(0.18 0.02 250);
+  --surface-2: oklch(0.22 0.025 250);
+
+  --card: oklch(0.18 0.02 250);
+  --card-foreground: oklch(0.97 0.005 250);
+  --popover: oklch(0.18 0.02 250);
+  --popover-foreground: oklch(0.97 0.005 250);
+
+  --brand: oklch(0.55 0.18 255);
+  /* steel blue (Sinha blue) */
+  --brand-foreground: oklch(0.98 0.005 250);
+  --ember: oklch(0.72 0.19 45);
+  /* orange accent (Sinha orange) */
+  --steel: oklch(0.45 0.04 250);
+
+  --primary: oklch(0.72 0.19 45);
+  /* ember as primary CTA */
+  --primary-foreground: oklch(0.15 0.02 250);
+  --secondary: oklch(0.24 0.03 250);
+  --secondary-foreground: oklch(0.97 0.005 250);
+
+  --muted: oklch(0.22 0.02 250);
+  --muted-foreground: oklch(0.7 0.02 250);
+  --accent: oklch(0.55 0.18 255);
+  --accent-foreground: oklch(0.98 0.005 250);
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 250);
+
+  --border: oklch(0.28 0.02 250 / 0.6);
+  --input: oklch(0.28 0.02 250);
+  --ring: oklch(0.72 0.19 45);
+
+  --gradient-brand: linear-gradient(135deg, oklch(0.55 0.18 255), oklch(0.72 0.19 45));
+  --gradient-ember: linear-gradient(135deg, oklch(0.72 0.19 45), oklch(0.62 0.22 25));
+  --gradient-radial-hero: radial-gradient(80% 60% at 30% 20%, oklch(0.55 0.18 255 / 0.35), transparent 70%),
+    radial-gradient(60% 50% at 90% 90%, oklch(0.72 0.19 45 / 0.35), transparent 70%);
+  --shadow-elegant: 0 30px 80px -30px oklch(0 0 0 / 0.6), 0 8px 24px -8px oklch(0.72 0.19 45 / 0.25);
+  --shadow-ember: 0 20px 60px -20px oklch(0.72 0.19 45 / 0.6);
+  --glass: oklch(1 0 0 / 0.06);
+  --glass-border: oklch(1 0 0 / 0.12);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--ember);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer utilities {
+  .quote-btn {
+    clip-path: polygon(18px 0,
+        100% 0,
+        100% calc(100% - 18px),
+        calc(100% - 18px) 100%,
+        0 100%,
+        0 18px);
+  }
+
+  .text-gradient-brand {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-ember {
+    background: var(--gradient-ember);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background: var(--gradient-brand);
+  }
+
+  .bg-gradient-ember {
+    background: var(--gradient-ember);
+  }
+
+  .bg-hero-radial {
+    background-image: var(--gradient-radial-hero);
+  }
+
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid var(--glass-border);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-ember {
+    box-shadow: var(--shadow-ember);
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .marquee {
+    animation: marquee 38s linear infinite;
+  }
+
+  .marquee-fast {
+    animation: marquee 28s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .text-outline-ember {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--ember);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
