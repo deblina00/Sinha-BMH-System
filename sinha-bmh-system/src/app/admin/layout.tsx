@@ -228,8 +228,6 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard,
   BriefcaseBusiness,
@@ -242,6 +240,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 const navItems = [
   {

@@ -42,14 +42,19 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Top utility strip */}
       <div className="hidden md:block bg-[oklch(0.12_0.03_255)] text-foreground/85 text-xs">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">          <div className="flex items-center gap-6 uppercase tracking-[0.18em]">
-          <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-ember" /> ISO 9001:2015 Certified</span>
-          <span className="text-foreground/40">·</span>
-          <span className="flex items-center gap-2"><ShieldCheck size={12} className="text-ember" /> MSME Registered</span>
-        </div>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-6 uppercase tracking-[0.18em]">
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-ember" /> ISO 9001:2015 Certified</span>
+            <span className="text-foreground/40">·</span>
+            <span className="flex items-center gap-2">
+              <ShieldCheck size={12} className="text-ember" /> MSME Registered</span>
+          </div>
           <div className="flex items-center gap-6">
-            <a href="tel:+913340000000" className="flex items-center gap-2 hover:text-ember"><Phone size={12} /> +91 33 4000 0000</a>
-            <a href="mailto:info@sinhabmh.in" className="flex items-center gap-2 hover:text-ember"><Mail size={12} /> info@sinhabmh.in</a>
+            <a href="tel:+913340000000" className="flex items-center gap-2 hover:text-ember">
+              <Phone size={12} /> +91 33 4000 0000</a>
+            <a href="mailto:info@sinhabmh.in" className="flex items-center gap-2 hover:text-ember">
+              <Mail size={12} /> info@sinhabmh.in</a>
           </div>
         </div>
       </div>
@@ -60,9 +65,10 @@ export default function Navbar() {
           }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3.5">
-          <Link
+          {/* <Link
             href="/"
             className="shrink-0 transition-opacity hover:opacity-90"
+            // className="shrink-0 transition-opacity hover:opacity-90 bg-white px-4 py-2 rounded-md"
           >
             <Image
               src={logoAsset}
@@ -70,7 +76,21 @@ export default function Navbar() {
               width={280}
               height={80}
               priority
-              className="h-14 w-auto object-contain"
+              className="h-14 w-auto object-contain "
+            />
+          </Link> */}
+
+          <Link
+            href="/"
+            className="shrink-0 transition-all hover:opacity-95 bg-white/95 backdrop-blur px-4 py-2.5 rounded-md shadow-[0_0_20px_rgba(255,255,255,0.1)] border border-white/20 flex items-center justify-center"
+          >
+            <Image
+              src={logoAsset}
+              alt="Sinha BMH Systems"
+              width={280}
+              height={80}
+              priority
+              className="h-10 w-auto object-contain" // Slightly reduced height to account for the new padding frame
             />
           </Link>
           <nav className="hidden flex-1 lg:flex items-center justify-center gap-8">

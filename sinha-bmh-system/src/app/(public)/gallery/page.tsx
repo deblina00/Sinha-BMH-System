@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
+import { ArrowRight, Award, ShieldCheck } from "lucide-react";
 import hero from "@/assets/hero-industrial.jpg";
 import about from "@/assets/about-plant.jpg";
 import conveyor from "@/assets/product-conveyor.jpg";
@@ -49,6 +50,32 @@ export default function GalleryPage() {
                 </figure>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEW LINK TO CERTIFICATES SECTION */}
+      <section className="py-16 bg-surface/30 border-t border-border/60 relative overflow-hidden">
+        <div className="absolute inset-0 grid-lines opacity-10" />
+        <div className="mx-auto max-w-7xl px-6 relative z-10">
+          <div className="border border-border/60 bg-background/60 p-8 sm:p-12 rounded-3xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-ember/10 border border-ember/30 rounded-xl text-ember shrink-0">
+                <ShieldCheck size={28} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold tracking-tight">Compliance & Quality Frameworks</h3>
+                <p className="mt-2 text-sm text-foreground/70 max-w-xl leading-relaxed">
+                  Our manufacturing systems, safety criteria, and operational execution adhere to strict global frameworks including ISO 9001:2015 and verified statutory certifications.
+                </p>
+              </div>
+            </div>
+            <Link 
+              href="/certificates" 
+              className="group inline-flex items-center gap-2 bg-ember px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-foreground hover:bg-amber-glow clip-corner transition shrink-0"
+            >
+              View Verification Certificates <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </section>

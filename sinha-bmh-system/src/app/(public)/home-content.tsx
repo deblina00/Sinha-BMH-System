@@ -1,3 +1,4 @@
+//src/app/(public/home-content.tsx
 "use client";
 
 import Link from "next/link";
@@ -7,9 +8,7 @@ import { useState } from "react";
 import { ArrowRight, ArrowUpRight, BadgeCheck, Cog, Factory, HardHat, Quote, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import heroImage from "@/assets/hero-industrial.jpg";
-import conveyor from "@/assets/product-conveyor.jpg";
-import elevator from "@/assets/product-elevator.jpg";
-import screen from "@/assets/product-screen.jpg";
+import { PRODUCTS } from "@/data/products";
 import SectionScrollNav from "@/components/site/SectionScrollNav";
 
 const sections = [
@@ -30,12 +29,6 @@ const STATS = [
   ["180+", "Projects delivered"],
   ["40+", "Active clients"],
   ["9", "States served"],
-];
-
-const PRODUCTS = [
-  { title: "Belt Conveyors", desc: "Heavy-duty troughed belt conveyors for long-distance bulk transport.", Image: conveyor },
-  { title: "Stacker Reclaimers", desc: "Yard machinery for stockpile management at ports & power plants.", Image: screen },
-  { title: "Bucket & Screw Elevators", desc: "Vertical handling for cement, fly-ash and granular materials.", Image: elevator },
 ];
 
 const SERVICE_TABS = ["All", "Engineering", "Manufacturing", "Execution", "Support"] as const;
@@ -89,7 +82,7 @@ export default function HomeContent() {
       {/* HERO */}
       <section id="hero" className="relative isolate overflow-hidden pt-[148px] md:pt-[176px] pb-0">
         <div className="absolute inset-0 -z-10">
-          <Image src={heroImage} alt="" className="h-full w-full object-cover opacity-25" />
+          <Image src={heroImage} alt="Sinha BMH Systems Industrial Infrastructure Background" className="h-full w-full object-cover opacity-25" />
           <div className="absolute inset-0 bg-gradient-to-b from-brand/40 via-background/85 to-background" />
           <div className="absolute inset-0 grid-lines opacity-40" />
         </div>
@@ -204,16 +197,17 @@ export default function HomeContent() {
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {PRODUCTS.map((p, i) => (
+            {/* Added .slice(0, 3) here to limit the displayed loop components */}
+            {PRODUCTS.slice(0, 3).map((p, i) => (
               <Reveal key={p.title} delay={i * 0.06}>
                 <article className="group border border-border/60 bg-surface/60 hover:border-ember transition-colors">
                   <div className="aspect-[4/3] overflow-hidden border-b border-border/60">
-                    <Image src={p.Image} alt={p.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                    <Image src={p.image} alt={p.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-bold">{p.title}</h3>
                     <p className="mt-2 text-sm text-foreground/70">{p.desc}</p>
-                    <Link href="/products" className="mt-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-ember">
+                    <Link href={`/products/${p.slug}`} className="mt-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-ember">
                       Details <ArrowRight size={12} />
                     </Link>
                   </div>
