@@ -27,19 +27,20 @@ export default function Footer() {
           <h4 className="text-[11px] font-bold uppercase tracking-[0.24em] text-ember">Company</h4>
           <ul className="mt-5 space-y-3 text-sm text-foreground/75">
             <li><Link href="/about" className="hover:text-ember">About Us</Link></li>
+              <li><Link href="/products" className="hover:text-ember">Products</Link></li>
             <li><Link href="/industries" className="hover:text-ember">Industries</Link></li>
             <li><Link href="/gallery" className="hover:text-ember">Gallery</Link></li>
-            <li><Link href="/contact" className="hover:text-ember">Purchase Orders</Link></li>
+            <li><Link href="/career" className="hover:text-ember">Careers</Link></li>
+            {/* <li><Link href="/contact" className="hover:text-ember">Purchase Orders</Link></li> */}
+           
           </ul>
         </div>
 
         <div>
-          <h4 className="text-[11px] font-bold uppercase tracking-[0.24em] text-ember">Capabilities</h4>
+          <h4 className="text-[11px] font-bold uppercase tracking-[0.24em] text-ember">Admin</h4>
           <ul className="mt-5 space-y-3 text-sm text-foreground/75">
-            <li><Link href="/products" className="hover:text-ember">Products</Link></li>
-            <li><Link href="/products" className="hover:text-ember">All Products</Link></li>
-            <li><Link href="/contact" className="hover:text-ember">Request Quote</Link></li>
-            <li><Link href="/services" className="hover:text-ember">Services</Link></li>
+            <li><Link href="/admin/login" className="hover:text-ember">Employee Login</Link></li>
+          
           </ul>
         </div>
 

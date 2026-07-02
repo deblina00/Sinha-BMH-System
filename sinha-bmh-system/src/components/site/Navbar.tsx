@@ -12,11 +12,10 @@ const NAV = [
   { href: "/about", label: "About" },
   { href: "/products", label: "Products" },
   { href: "/industries", label: "Industries" },
-  { href: "/services", label: "Services" },
-  { href: "/purchase-orders", label: "Purchase-Orders" },
   { href: "/gallery", label: "Gallery" },
   { href: "/careers", label: "Career" },
   { href: "/contact", label: "Contact" },
+  { href: "/certificates", label: "Certifications" },
 ] as const;
 
 const NEWS = [
@@ -147,7 +146,7 @@ export default function Navbar() {
       </div>
 
       {/* Latest news ticker */}
-      <div className="hidden md:block border-b border-border/60 bg-surface/95 backdrop-blur-md">
+      {/* <div className="hidden md:block border-b border-border/60 bg-surface/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-stretch overflow-hidden">
           <div className="relative flex shrink-0 items-center bg-brand px-6 py-3 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-foreground">
             Latest News
@@ -166,7 +165,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {open && (
         <div className="lg:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">

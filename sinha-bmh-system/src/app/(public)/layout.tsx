@@ -80,7 +80,10 @@ export default function PublicLayout({
   return (
     <Providers>
       <Navbar />
-      <main>{children}</main>
+      {/* Added pt-24 (Padding Top). Adjust this value (e.g., pt-20, pt-28, pt-32) 
+        depending on how tall your fixed navbar actually is.
+      */}
+      <main className="">{children}</main>
       <Toaster richColors position="top-right" />
       <Footer />
     </Providers>

@@ -1,9 +1,10 @@
+
+//src/app/(public)/careers/page.tsx
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-
 import Link from "next/link";
-
 import {
   Loader2,
   Search,
@@ -21,20 +22,8 @@ import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { Eyebrow } from "@/components/site/Eyebrow";
+import { Job } from "@/types/job";
 
-interface Job {
-  _id: string;
-  title: string;
-  department: string;
-  location: string;
-  type: string;
-  experience: string;
-  salary: string;
-  vacancies: number;
-  description: string;
-  active: boolean;
-  createdAt: string;
-}
 
 export default function CareersPage() {
   const [jobs, setJobs] =
@@ -202,10 +191,10 @@ export default function CareersPage() {
 
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Users className="h-5 w-5 text-ember" />
-                      {job.vacancies} Vacancy
+                      {job.vacancies} Vacanc
                       {job.vacancies > 1
                         ? "ies"
-                        : ""}
+                        : "y"}
                     </div>
 
                   </div>
@@ -216,7 +205,7 @@ export default function CareersPage() {
                         variant="secondary"
                         className="text-base"
                       >
-                        {job.salary}
+                        {job.salary || "Not Disclosed"}
                       </Badge>
                     </div>
                   )}

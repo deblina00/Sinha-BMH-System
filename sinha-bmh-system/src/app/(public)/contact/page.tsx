@@ -30,7 +30,6 @@ export default function ContactPage() {
         description="Share material, tonnage and a rough site description. Our engineering desk responds within one working day."
       />
 
-
       {/* BODY */}
       <section className="py-20 bg-surface/30">
         <div className="mx-auto max-w-7xl px-6 grid gap-12 lg:grid-cols-[1fr_1.8fr] items-start">
@@ -42,14 +41,20 @@ export default function ContactPage() {
             </h2>
 
             <ul className="mt-10 space-y-7 text-sm">
-              <ContactRow icon={MapPin} title="Head Office">
-                Industrial Area, Phase II<br />Ranchi, Jharkhand 834001, India
+              <ContactRow icon={MapPin} title="Works - I">
+                Saraswati Complex, Nimerhati, Makardah, Howrah, West Bengal, 711409
+              </ContactRow>
+              <ContactRow icon={MapPin} title="Works - II">
+                Dakshin Jhapardah, PS: Domjur, Howrah, West bengal, 711405
+              </ContactRow>
+              <ContactRow icon={MapPin} title="Corporate Office">
+                Unit - 2WS5A, 2nd Floor, West Block, Mani Casadona, Action Area - 11F, Netown, Kolkata, 700160
               </ContactRow>
               <ContactRow icon={Phone} title="Phone">
-                +91 33 4000 0000<br />+91 98 3000 0001
+                +91 9831172193
               </ContactRow>
               <ContactRow icon={Mail} title="Email">
-                info@sinhabmh.in<br />projects@sinhabmh.in
+                info@sinhabmh.in
               </ContactRow>
             </ul>
           </Reveal>

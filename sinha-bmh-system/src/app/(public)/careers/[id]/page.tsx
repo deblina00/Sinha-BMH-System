@@ -1,62 +1,40 @@
-// src/app/careers/[id]/page.tsx
+// src/app/(public)/careers/[id]/page.tsx
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-import {
-  ArrowLeft,
-  MapPin,
-  BriefcaseBusiness,
-  Clock3,
-  IndianRupee,
-  Users,
-  Building2,
-} from "lucide-react";
-
+import { ArrowLeft, MapPin, BriefcaseBusiness, Clock3, IndianRupee, Users, Building2 } from "lucide-react";
 import ApplyForm from "@/components/careers/ApplyForm";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Job } from "@/types/job";
 
-interface Job {
-  _id: string;
-  title: string;
-  department: string;
-  location: string;
-  type: string;
-  experience: string;
-  salary: string;
-  vacancies: number;
-  description: string;
-  active: boolean;
-  createdAt: string;
-}
 
 async function getJob(id: string): Promise<Job | null> {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/jobs/${id}`,
-      {
-        cache: "no-store",
-      }
+      { cache: "no-store" }
     );
-
-    if (!res.ok) return null;
-
+    if (!res.ok) {
+      console.error(`API fetched failed with status: ${res.status}`);
+      return null;
+    }
     return res.json();
-  } catch {
+  } catch (error) {
+    console.error("Fetch error on server side:", error);
     return null;
   }
 }
 
+
 export default async function CareerDetailsPage({
   params,
 }: {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }) {
-  const job = await getJob(params.id);
+  const { id } = await params;
+  const job = await getJob(id);
 
   if (!job) {
     notFound();
@@ -135,7 +113,7 @@ export default async function CareerDetailsPage({
                   </p>
 
                   <p className="font-semibold">
-                    {job.salary}
+                  {job.salary || "Not Disclosed"}
                   </p>
                 </div>
               </Card>

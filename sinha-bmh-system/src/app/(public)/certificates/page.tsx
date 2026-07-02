@@ -20,22 +20,6 @@ const CERTIFICATES = [
     status: "Registered",
     code: "UDYAM-JH-20-XXXXXXX",
   },
-  {
-    id: "nsic-cert",
-    title: "NSIC Single Point Registration",
-    issuer: "National Small Industries Corporation",
-    scope: "Government Purchase Programme allocation for bulk equipment design tenders.",
-    status: "Verified vendor",
-    code: "NSIC/SPR/2025/XYZ",
-  },
-  {
-    id: "safety-award",
-    title: "Safety Performance Excellence Award",
-    issuer: "Major Integrated Power Client Auditing Board",
-    scope: "Successful delivery of complex Coal Handling upgrades under zero-accident constraints.",
-    status: "Honored",
-    code: "Year: 2024",
-  }
 ];
 
 export default function CertificatesPage() {
@@ -65,20 +49,12 @@ export default function CertificatesPage() {
 
                     <h3 className="text-xl font-bold tracking-tight mt-6 text-foreground">{c.title}</h3>
                     <p className="text-xs text-foreground/50 mt-1 font-medium">{c.issuer}</p>
-                    
+
                     <div className="h-px bg-border/40 my-4" />
-                    
                     <p className="text-sm text-foreground/80 leading-relaxed">
                       <span className="block text-[11px] uppercase tracking-wider text-foreground/40 font-semibold mb-1">Certified Scope</span>
                       {c.scope}
                     </p>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-border/30 flex items-center justify-between text-xs text-foreground/60 font-mono">
-                    <span>{c.code}</span>
-                    <button className="inline-flex items-center gap-1.5 font-sans font-semibold text-ember hover:text-amber-glow transition cursor-not-allowed text-[11px] uppercase tracking-wider">
-                      <FileCheck size={14} /> Request Copy
-                    </button>
                   </div>
                 </div>
               </Reveal>

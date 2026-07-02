@@ -3,7 +3,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-
 import {
   Plus,
   Pencil,
@@ -16,9 +15,7 @@ import {
 } from "lucide-react";
 
 import { toast } from "sonner";
-import { Switch } from "@/components/ui/switch"; // If using shadcn switch
 import JobEditor from "@/components/admin/JobEditor";
-
 import {
   Dialog,
   DialogContent,
@@ -26,7 +23,6 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
-
 import {
   AlertDialog,
   AlertDialogAction,
@@ -37,7 +33,6 @@ import {
   AlertDialogDescription,
   AlertDialogFooter,
 } from "@/components/ui/alert-dialog";
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -314,13 +309,10 @@ export default function JobsPage() {
             >
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div className="flex-1">
-
                   <div className="flex flex-wrap items-center gap-3">
-
                     <h2 className="text-2xl font-bold">
                       {job.title}
                     </h2>
-
                     <Badge
                       variant={
                         job.active
@@ -332,55 +324,41 @@ export default function JobsPage() {
                         ? "Active"
                         : "Closed"}
                     </Badge>
-
                   </div>
-
                   <div className="mt-4 flex flex-wrap gap-5 text-sm text-muted-foreground">
-
                     <div className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-ember" />
                       {job.location}
                     </div>
-
                     <div className="flex items-center gap-2">
                       <BriefcaseBusiness className="h-4 w-4 text-ember" />
                       {job.department}
                     </div>
-
                     <div className="flex items-center gap-2">
                       <CalendarDays className="h-4 w-4 text-ember" />
                       {new Date(
                         job.createdAt
                       ).toLocaleDateString()}
                     </div>
-
                   </div>
-
                   <div className="mt-5 flex flex-wrap gap-2">
-
                     <Badge variant="outline">
                       {job.type}
                     </Badge>
-
                     <Badge variant="outline">
                       {job.experience}
                     </Badge>
-
                     <Badge variant="outline">
                       {job.salary}
                     </Badge>
-
                     <Badge variant="outline">
                       {job.vacancies} Vacancy
                       {job.vacancies > 1
                         ? "ies"
                         : ""}
                     </Badge>
-
                   </div>
-
                 </div>
-
                 <div className="flex gap-3">
 
                   <Button
@@ -392,7 +370,6 @@ export default function JobsPage() {
                     <Pencil className="mr-2 h-4 w-4" />
                     Edit
                   </Button>
-
                   <Button
                     variant="destructive"
                     onClick={() => {
@@ -403,7 +380,6 @@ export default function JobsPage() {
                     <Trash2 className="mr-2 h-4 w-4" />
                     Delete
                   </Button>
-
                 </div>
               </div>
             </Card>
@@ -418,21 +394,16 @@ export default function JobsPage() {
         onOpenChange={setDialogOpen}
       >
         <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-5xl">
-
           <DialogHeader>
-
             <DialogTitle>
               {editingId
                 ? "Edit Job"
                 : "Create Job"}
             </DialogTitle>
-
           </DialogHeader>
 
           <div className="grid gap-5">
-
             <div className="grid gap-5 md:grid-cols-2">
-
               <div>
                 <Label>
                   Job Title
@@ -449,7 +420,6 @@ export default function JobsPage() {
                   }
                 />
               </div>
-
               <div>
                 <Label>
                   Department
@@ -466,7 +436,6 @@ export default function JobsPage() {
                   }
                 />
               </div>
-
               <div>
                 <Label>
                   Location
@@ -483,7 +452,6 @@ export default function JobsPage() {
                   }
                 />
               </div>
-
               <div>
                 <Label>
                   Employment Type
@@ -500,7 +468,6 @@ export default function JobsPage() {
                   }
                 />
               </div>
-
               <div>
                 <Label>
                   Experience
@@ -517,7 +484,6 @@ export default function JobsPage() {
                   }
                 />
               </div>
-
               <div>
                 <Label>
                   Salary
@@ -534,27 +500,6 @@ export default function JobsPage() {
                   }
                 />
               </div>
-
-              {/* <div>
-                <Label>
-                  Vacancies
-                </Label>
-
-                <Input
-                  type="number"
-                  min={1}
-                  value={form.vacancies}
-                  onChange={(e) =>
-                    setForm({
-                      ...form,
-                      vacancies:
-                        Number(
-                          e.target.value
-                        ),
-                    })
-                  }
-                />
-              </div> */}
               <div>
                 <Label>Vacancies</Label>
                 <Input
@@ -630,7 +575,6 @@ export default function JobsPage() {
             >
               Cancel
             </Button>
-
             <Button
               onClick={saveJob}
               disabled={saving}
@@ -643,9 +587,7 @@ export default function JobsPage() {
                 ? "Update Job"
                 : "Create Job"}
             </Button>
-
           </DialogFooter>
-
         </DialogContent>
       </Dialog>
 
@@ -656,33 +598,24 @@ export default function JobsPage() {
         onOpenChange={setDeleteOpen}
       >
         <AlertDialogContent>
-
           <AlertDialogHeader>
-
             <AlertDialogTitle>
               Delete Job?
             </AlertDialogTitle>
-
             <AlertDialogDescription>
               This action cannot be undone.
             </AlertDialogDescription>
-
           </AlertDialogHeader>
-
           <AlertDialogFooter>
-
             <AlertDialogCancel>
               Cancel
             </AlertDialogCancel>
-
             <AlertDialogAction
               onClick={deleteJob}
             >
               Delete
             </AlertDialogAction>
-
           </AlertDialogFooter>
-
         </AlertDialogContent>
       </AlertDialog>
     </>

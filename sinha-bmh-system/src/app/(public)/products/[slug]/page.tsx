@@ -1,3 +1,5 @@
+//src/app/(public)/products/[slug]/page.tsx
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -63,47 +65,19 @@ export default async function ProductDetailPage({ params }: Props) {
           </Reveal>
         </div>
 
-        {/* Varieties & Options Showcase */}
-        <section className="mt-20 pt-12 border-t border-border/60">
-          <Reveal>
-            <div className="mb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Available Varieties & Configurations</h2>
-              <p className="text-sm text-foreground/60 mt-2">Custom tailorable layouts based on plant parameters and spatial configuration.</p>
-            </div>
-          </Reveal>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {product.varieties.map((variety, index) => (
-              <Reveal key={variety.name} delay={index * 0.05}>
-                <div className="border border-border/40 bg-surface/20 p-6 rounded-sm hover:border-ember/60 transition-colors h-full flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 size={18} className="text-ember mt-0.5 shrink-0" />
-                      <h3 className="text-base font-bold text-foreground">{variety.name}</h3>
-                    </div>
-                    <p className="mt-3 text-xs text-foreground/70 leading-relaxed pl-7.5">
-                      {variety.specs}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
         {/* Inner page Call to Action */}
         <section className="mt-20 bg-brand p-8 sm:p-12 relative overflow-hidden">
           <div className="absolute inset-0 grid-lines opacity-20" />
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-brand-foreground">Need a custom blueprint configuration?</h3>
-              <p className="text-xs text-brand-foreground/70 mt-1">Our engineering office at Ranchi can adapt dimensions to match existing layouts.</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-brand-foreground">Do you have any specific requirement ?</h3>
+              <p className="text-xs text-brand-foreground/70 mt-1">We're Here to Help – Contact Us for Any Enquiries.</p>
             </div>
             <Link 
               href="/contact" 
               className="inline-flex items-center gap-2 bg-ember px-5 py-3 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-amber-glow clip-corner transition"
             >
-              Get Technical Datasheet <ChevronRight size={14} />
+              Contact Us <ChevronRight size={14} />
             </Link>
           </div>
         </section>

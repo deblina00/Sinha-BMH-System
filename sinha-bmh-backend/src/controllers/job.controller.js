@@ -18,6 +18,25 @@ export const getJobs = async (req, res) => {
   }
 };
 
+// Add this to your job controller file
+export const getJobById = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id);
+
+    if (!job) {
+      return res.status(404).json({ message: "Job not found" });
+    }
+
+    res.json(job);
+  } catch (error) {
+    // Handle invalid ObjectId format or other database errors
+    if (error.kind === "ObjectId") {
+      return res.status(404).json({ message: "Invalid Job ID format" });
+    }
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // Added Update Controller
 export const updateJob = async (req, res) => {
   try {

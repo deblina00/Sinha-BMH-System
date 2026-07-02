@@ -1,3 +1,5 @@
+//src/data/products.ts
+
 import conveyor from "@/assets/product-conveyor.jpg";
 import elevator from "@/assets/product-elevator.jpg";
 import screen from "@/assets/product-screen.jpg";
@@ -18,6 +20,40 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
+  {
+    slug: "pulleys",
+    title: "Pulleys",
+    desc: "Engineered drive, tail, and take-up assemblies.",
+    image: screen,
+    longDesc: "Heavy-duty welded steel pulleys designed to withstand high belt tensions. Available with standard or diamond grooved rubber/ceramic lagging to eliminate slippage.",
+    varieties: [
+      { name: "Drive Pulleys", specs: "Engineered with heavy-duty shafts and premium lagging for power transmission." },
+      { name: "Snub & Take-Up Pulleys", specs: "Designed to optimize wrap angles and maintain accurate counter-weight tension." }
+    ]
+  },
+  {
+    slug: "roller",
+    title: "Roller",
+    desc: "Thermal-resilient roller beds for hot metal and billet handling.",
+    image: elevator,
+    longDesc: "Specialized heat-insulated conveyor beds for directly feeding hot billets, slabs, or DRI (Direct Reduced Iron) into mills safely at intense temperatures.",
+    varieties: [
+      { name: "Water-Cooled Roller Conveyors", specs: "Internal circulation cooling for continuous hot billet paths." },
+      { name: "Heavy-Duty Melt Shop Runout Tables", specs: "Impact resistant direct drop-zones built for steel foundries." }
+    ]
+  },
+  {
+    slug: "idlers",
+    title: "Idlers",
+    desc: "Heavy-duty structural supports tracking structural alignment.",
+    image: conveyor,
+    longDesc: "Precision-aligned, heavy-gauge steel idler frames built to survive impact forces at transfer points and ensure clean belt running across long lifespans.",
+    varieties: [
+      { name: "Carry Trough Idlers", specs: "Standard 3-roller set configurations for bulk volume paths." },
+      { name: "Impact Idler Frames", specs: "Reinforced configurations with rubber rings for high drop points." },
+      { name: "Self-Aligning Trainer Idlers", specs: "Automatically corrects belt drift dynamically." }
+    ]
+  },
   {
     slug: "belt-conveyors",
     title: "Belt Conveyors",
@@ -54,29 +90,6 @@ export const PRODUCTS: Product[] = [
     ]
   },
   {
-    slug: "idler-frames",
-    title: "Idler Frames",
-    desc: "Heavy-duty structural supports tracking structural alignment.",
-    image: conveyor,
-    longDesc: "Precision-aligned, heavy-gauge steel idler frames built to survive impact forces at transfer points and ensure clean belt running across long lifespans.",
-    varieties: [
-      { name: "Carry Trough Idlers", specs: "Standard 3-roller set configurations for bulk volume paths." },
-      { name: "Impact Idler Frames", specs: "Reinforced configurations with rubber rings for high drop points." },
-      { name: "Self-Aligning Trainer Idlers", specs: "Automatically corrects belt drift dynamically." }
-    ]
-  },
-  {
-    slug: "pulleys",
-    title: "Pulleys",
-    desc: "Engineered drive, tail, and take-up assemblies.",
-    image: screen,
-    longDesc: "Heavy-duty welded steel pulleys designed to withstand high belt tensions. Available with standard or diamond grooved rubber/ceramic lagging to eliminate slippage.",
-    varieties: [
-      { name: "Drive Pulleys", specs: "Engineered with heavy-duty shafts and premium lagging for power transmission." },
-      { name: "Snub & Take-Up Pulleys", specs: "Designed to optimize wrap angles and maintain accurate counter-weight tension." }
-    ]
-  },
-  {
     slug: "scrappers",
     title: "Scrappers",
     desc: "High-efficiency belt and chain cleaners for heavy material removal.",
@@ -87,15 +100,4 @@ export const PRODUCTS: Product[] = [
       { name: "Tungsten Carbide Secondary Scrapers", specs: "Fine-tune skimming to handle persistent sticky fines." }
     ]
   },
-  {
-    slug: "hot-charging-roller-conveyor",
-    title: "Hot Charging Roller Conveyor",
-    desc: "Thermal-resilient roller beds for hot metal and billet handling.",
-    image: elevator,
-    longDesc: "Specialized heat-insulated conveyor beds for directly feeding hot billets, slabs, or DRI (Direct Reduced Iron) into mills safely at intense temperatures.",
-    varieties: [
-      { name: "Water-Cooled Roller Conveyors", specs: "Internal circulation cooling for continuous hot billet paths." },
-      { name: "Heavy-Duty Melt Shop Runout Tables", specs: "Impact resistant direct drop-zones built for steel foundries." }
-    ]
-  }
 ];
